@@ -11,6 +11,7 @@ public class Movimento : MonoBehaviour
     private bool estaNoChao;
     [SerializeField] private Transform pePersonagem;
     [SerializeField] private LayerMask cenarioLayer;
+    [SerializeField] private TrailRenderer trailRenderer;
     
 
     private bool saltoExtra;
@@ -28,6 +29,8 @@ public class Movimento : MonoBehaviour
         direcaoAtual = DirecaoPersonagem.DIREITA;
 
         animator = GetComponent<Animator>();
+
+        trailRenderer.emitting = false;
     }
 
     // Update is called once per frame
@@ -109,6 +112,7 @@ public class Movimento : MonoBehaviour
 
     private IEnumerator RealizarDash()
     {
+        trailRenderer.emitting = true;
         dashLiberadoParaUso = false;
         executandoDash = true;
 
@@ -125,6 +129,7 @@ public class Movimento : MonoBehaviour
 
         yield return new WaitForSeconds(0.3f);
 
+        trailRenderer.emitting = false; 
         executandoDash = false;
         rb.gravityScale = 1;
         rb.linearVelocity = Vector2.zero;
