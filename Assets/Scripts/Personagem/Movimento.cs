@@ -21,6 +21,7 @@ public class Movimento : MonoBehaviour
     private DirecaoPersonagem direcaoAtual;
 
     private Animator animator;
+    [SerializeField] private JogadorUI jogadorUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -134,7 +135,15 @@ public class Movimento : MonoBehaviour
         rb.gravityScale = 1;
         rb.linearVelocity = Vector2.zero;
 
-        yield return new WaitForSeconds(3);
+        float contador = 0f;
+
+        while (contador < 3)
+        {
+            contador += Time.deltaTime;
+            jogadorUI.AtualizarProgressoDash(contador / 3);
+            yield return null;
+        }
+
         dashLiberadoParaUso = true;
     }
 }

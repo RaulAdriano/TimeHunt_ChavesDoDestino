@@ -7,6 +7,7 @@ public class Ataque : MonoBehaviour
     [SerializeField] private bool espadaLiberada = true;
     private Animator animator;
     [SerializeField] private ControladorHitBox controladorHitBox;
+    [SerializeField] private JogadorUI jogadorUI;
 
     private int danoEspada = 30;
 
@@ -33,7 +34,14 @@ public class Ataque : MonoBehaviour
         animator.SetTrigger("AtaqueComEspada");
         controladorHitBox.AplicarDano(danoEspada);
 
-        yield return new WaitForSeconds(0.6f);
+        float contador = 0f;
+
+        while (contador <0.6f)
+        {
+            contador += Time.deltaTime;
+            jogadorUI.AtualizarProgressoEspada(contador / 0.6f);
+            yield return null;
+        }
         espadaLiberada = true;
     }
 }
