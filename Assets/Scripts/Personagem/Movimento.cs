@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Movimento : MonoBehaviour
@@ -13,6 +14,8 @@ public class Movimento : MonoBehaviour
     
 
     private bool saltoExtra;
+    private bool dashLiberadoParaUso = true;
+    private bool executandoDash;
 
     private DirecaoPersonagem direcaoAtual;
 
@@ -52,6 +55,11 @@ public class Movimento : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.C) && dashLiberadoParaUso)
+        {
+            StartCoroutine(RealizarDash());            
+        }
+
         if (entradaHorizontal > 0)
         {
             GirarPersonagem(DirecaoPersonagem.DIREITA);
@@ -66,7 +74,11 @@ public class Movimento : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(entradaHorizontal * velocidade, rb.linearVelocity.y);
+        if (!executandoDash)
+        {
+            rb.linearVelocity = new Vector2(entradaHorizontal * velocidade, rb.linearVelocity.y);
+        }
+        
     }
 
     private void Saltar()
@@ -93,6 +105,32 @@ public class Movimento : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
+    }
+
+    private IEnumerator RealizarDash()
+    {
+        dashLiberadoParaUso = false;
+        executandoDash = true;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0;
+        
+        if(direcaoAtual == DirecaoPersonagem.DIREITA)
+        {
+            rb.AddForce(Vector2.right * 20, ForceMode2D.Impulse);
+        }else 
+        {
+            rb.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        executandoDash = false;
+        rb.gravityScale = 1;
+        rb.linearVelocity = Vector2.zero;
+
+        yield return new WaitForSeconds(3);
+        dashLiberadoParaUso = true;
     }
 }
 
