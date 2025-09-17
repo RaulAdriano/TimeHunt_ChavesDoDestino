@@ -1,0 +1,33 @@
+using System;
+using UnityEngine;
+
+public class InimigoGenericoMorrer : InimigoEstado
+{
+
+    [SerializeField] private Animator animator;
+
+    public override void OnEnter()
+    {
+        animator.SetTrigger("Morrer");
+        Destroy(gameObject, 3f);
+    }
+
+    public override void OnExit()
+    {
+        
+    }
+
+    public override Type OnUpdate()
+    {
+        return null;
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        
+    }
+
+
+}
