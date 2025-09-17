@@ -10,16 +10,21 @@ public class Movimento : MonoBehaviour
     private bool estaNoChao;
     [SerializeField] private Transform pePersonagem;
     [SerializeField] private LayerMask cenarioLayer;
+    
 
     private bool saltoExtra;
 
     private DirecaoPersonagem direcaoAtual;
+
+    private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         direcaoAtual = DirecaoPersonagem.DIREITA;
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,6 +59,9 @@ public class Movimento : MonoBehaviour
         {
             GirarPersonagem(DirecaoPersonagem.ESQUERDA);
         }
+
+        animator.SetBool("Correr", entradaHorizontal != 0);
+        animator.SetBool("EstaNoChao", estaNoChao);
     }
 
     private void FixedUpdate()
@@ -65,6 +73,8 @@ public class Movimento : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * 300);
+
+        animator.SetTrigger("Saltar");
     }
 
     private void GirarPersonagem(DirecaoPersonagem direcao)
