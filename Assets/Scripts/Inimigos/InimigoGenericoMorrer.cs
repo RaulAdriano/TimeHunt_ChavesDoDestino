@@ -4,7 +4,7 @@ using UnityEngine;
 public class InimigoGenericoMorrer : InimigoEstado
 {
 
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     public override void OnEnter()
     {
