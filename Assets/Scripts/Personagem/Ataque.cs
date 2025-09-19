@@ -16,10 +16,15 @@ public class Ataque : MonoBehaviour
     [SerializeField] Transform pontoLancamento;
     private int danoBoloFogo = 50;
 
+    private int danoEspadaOriginal;
+    private int danoBolaFogoOriginal;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
+        danoEspadaOriginal = danoEspada;
+        danoBolaFogoOriginal = danoBoloFogo;
     }
 
     // Update is called once per frame
@@ -75,5 +80,17 @@ public class Ataque : MonoBehaviour
 
         bolaFogoLiberada = true;
 
+    }
+
+    public void AumentarDano()
+    {
+        danoEspada = danoEspadaOriginal * 2;
+        danoBoloFogo = danoBolaFogoOriginal * 2;
+    }
+
+    public void ReduzirDano()
+    {
+        danoEspada = danoEspadaOriginal;
+        danoBoloFogo = danoBolaFogoOriginal;
     }
 }

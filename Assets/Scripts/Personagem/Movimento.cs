@@ -23,6 +23,8 @@ public class Movimento : MonoBehaviour
     private Animator animator;
     [SerializeField] private JogadorUI jogadorUI;
 
+    private float velocidadeOriginal;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,7 @@ public class Movimento : MonoBehaviour
         animator = GetComponent<Animator>();
 
         trailRenderer.emitting = false;
+        velocidadeOriginal = velocidade;
     }
 
     // Update is called once per frame
@@ -145,6 +148,16 @@ public class Movimento : MonoBehaviour
         }
 
         dashLiberadoParaUso = true;
+    }
+
+    public void AumentarVelocidade()
+    {
+        velocidade = velocidadeOriginal * 1.5f;
+    }
+
+    public void ReduzirVelocidade()
+    {
+        velocidade = velocidadeOriginal;
     }
 }
 
