@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71dc71c09f09cd4e9146482723a6be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InimigoGenericoMorrer
+  efeitoMorte: {fileID: 6258752063944363929, guid: 579f7881b552d7c48a7b6e830674766f, type: 3}
 --- !u!114 &3147248494068315358
 MonoBehaviour:
   m_ObjectHideFlags: 0

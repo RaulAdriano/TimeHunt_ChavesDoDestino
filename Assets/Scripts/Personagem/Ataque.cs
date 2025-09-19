@@ -62,7 +62,7 @@ public class Ataque : MonoBehaviour
 
         Projetil projetil = Instantiate(bolaFogoPrefab, pontoLancamento.position, pontoLancamento.rotation);
 
-        projetil.IniciarLancamento(null,5,danoBoloFogo,false);
+        projetil.IniciarLancamento(null, 5 , danoBoloFogo ,false);
 
         float contador = 0f;
 

@@ -5,9 +5,11 @@ public class InimigoGenericoMorrer : InimigoEstado
 {
 
     private Animator animator;
+    [SerializeField] private GameObject efeitoMorte;
 
     public override void OnEnter()
     {
+        Instantiate(efeitoMorte, transform.position, transform.rotation);
         animator.SetTrigger("Morrer");
         Destroy(gameObject, 3f);
     }
