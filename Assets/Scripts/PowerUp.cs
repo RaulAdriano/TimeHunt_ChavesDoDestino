@@ -7,7 +7,7 @@ public class PowerUp : MonoBehaviour
 
     void Start()
     {
-        
+        Invoke(nameof(AtivarColisor), 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,5 +17,10 @@ public class PowerUp : MonoBehaviour
             collision.gameObject.GetComponent<ControladorPowerUp>().EquiparPowerUp(tipo);
             Destroy(gameObject);
         }
+    }
+
+    private void AtivarColisor()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

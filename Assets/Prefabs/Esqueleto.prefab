@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 7518298949273759170}
   - component: {fileID: 656301771736072391}
   - component: {fileID: 3147248494068315358}
+  - component: {fileID: 3828433836161506829}
   m_Layer: 6
   m_Name: Esqueleto
   m_TagString: Inimigo
@@ -574,6 +575,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3828433836161506829}
+        m_TargetAssemblyTypeName: InstanciadorPowerUp, Assembly-CSharp
+        m_MethodName: InstanciarPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &3481507945171921574
 Rigidbody2D:
   serializedVersion: 5
@@ -687,6 +700,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarraVidaInimigo
   barraVidaSlider: {fileID: 5696744976035062971}
+--- !u!114 &3828433836161506829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107444312216300186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbf2caf77a677b438664720ee84baf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstanciadorPowerUp
+  powerUps:
+  - {fileID: 6423273561592871939, guid: c624f48b19379e442aa883cc528eb328, type: 3}
+  - {fileID: 5754940730622663469, guid: 99dc468191541bf4a9c5d0dc3ea081d9, type: 3}
+  - {fileID: 808788743937440604, guid: 932c95c6c6df6c44ebe5b3978e622372, type: 3}
+  - {fileID: 6206859170831518066, guid: 94fc95fd68db7a54cb02cac28dd55677, type: 3}
+  probabilidade: 0.5
 --- !u!1 &5200379670668463099
 GameObject:
   m_ObjectHideFlags: 0

@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 5947693072507472221}
   - component: {fileID: 1092261092247577796}
   - component: {fileID: 2626852015666430159}
+  - component: {fileID: 6071516637821614751}
   m_Layer: 6
   m_Name: Minhoca
   m_TagString: Inimigo
@@ -457,6 +458,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6071516637821614751}
+        m_TargetAssemblyTypeName: InstanciadorPowerUp, Assembly-CSharp
+        m_MethodName: InstanciarPowerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3017058658851370915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +529,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarraVidaInimigo
   barraVidaSlider: {fileID: 1039381364713900348}
+--- !u!114 &6071516637821614751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160686171436263183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbf2caf77a677b438664720ee84baf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstanciadorPowerUp
+  powerUps:
+  - {fileID: 6423273561592871939, guid: c624f48b19379e442aa883cc528eb328, type: 3}
+  - {fileID: 5754940730622663469, guid: 99dc468191541bf4a9c5d0dc3ea081d9, type: 3}
+  - {fileID: 808788743937440604, guid: 932c95c6c6df6c44ebe5b3978e622372, type: 3}
+  - {fileID: 6206859170831518066, guid: 94fc95fd68db7a54cb02cac28dd55677, type: 3}
+  probabilidade: 0.5
 --- !u!1 &5094181069044371524
 GameObject:
   m_ObjectHideFlags: 0
