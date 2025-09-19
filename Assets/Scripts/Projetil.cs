@@ -32,7 +32,11 @@ public class Projetil : MonoBehaviour
 
     public void IniciarLancamento(Transform alvo, int velocidade, int dano, bool ignorarInimigo)
     {
-        transform.right = alvo.position - transform.position;
+        if (alvo != null)
+        {
+            transform.right = alvo.position - transform.position;
+        }
+        
         this.velocidade = velocidade;
         this.dano = dano;
         this.ignorarInimigo = ignorarInimigo;
