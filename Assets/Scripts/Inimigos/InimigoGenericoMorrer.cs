@@ -7,8 +7,11 @@ public class InimigoGenericoMorrer : InimigoEstado
     private Animator animator;
     [SerializeField] private GameObject efeitoMorte;
 
+    [SerializeField] private int tempoExtra;
+
     public override void OnEnter()
     {
+        ControladorPartida.instance.NovoMonstroDerrotado(tempoExtra);
         Instantiate(efeitoMorte, transform.position, transform.rotation);
         animator.SetTrigger("Morrer");
         Destroy(gameObject, 3f);
