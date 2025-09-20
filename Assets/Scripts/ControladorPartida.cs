@@ -14,6 +14,11 @@ public class ControladorPartida : MonoBehaviour
     [SerializeField] private TMP_Text tempoRestanteText;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text chavesColetadasText;
+    [SerializeField] private TMP_Text tempoJogadoGameOverText;
+    [SerializeField] private TMP_Text monstrosDerrotadosGameOverText;
+    [SerializeField] private TMP_Text danoSofridoGameOverText;
+    [SerializeField] private TMP_Text chavesColetadasGameOverText;
+    [SerializeField] private TMP_Text scoreGameOverText;
 
     private void Awake()
     {
@@ -51,6 +56,25 @@ public class ControladorPartida : MonoBehaviour
     {
         Time.timeScale = 0;    
         gameOverPanel.SetActive(true);
+
+        tempoJogadoGameOverText.text = tempoTotalPartida + "s";
+        monstrosDerrotadosGameOverText.text = monstrosDerrotados.ToString();
+        danoSofridoGameOverText.text = danoSofrido.ToString();
+        chavesColetadasGameOverText.text = chavesColetadas + "/3";
+
+        if (vitoria)
+        {
+            scoreGameOverText.text = "SCORE: " + Mathf.Max(0, CalcularScore());
+        }
+        else
+        {
+            scoreGameOverText.text = "SCORE: 0000";
+        }
+    }
+
+    private int CalcularScore()
+    {
+        return (2000 - tempoTotalPartida) + (monstrosDerrotados * 5) - (danoSofrido * 2);
     }
 
     public void NovoMonstroDerrotado(int tempoExtra)
