@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControladorPartida : MonoBehaviour
 {
     [SerializeField] public static ControladorPartida instance { get; private set; }
-    private int tempoRestante = 30;
+    private int tempoRestante = 3000;
     private int tempoTotalPartida = 0;
     private int monstrosDerrotados;
     private int danoSofrido;
