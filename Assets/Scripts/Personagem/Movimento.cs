@@ -22,6 +22,8 @@ public class Movimento : MonoBehaviour
 
     private Animator animator;
     [SerializeField] private JogadorUI jogadorUI;
+    [SerializeField] private AudioSource pularAudio;
+    [SerializeField] private AudioSource dashAudio;
 
     private float velocidadeOriginal;
 
@@ -90,6 +92,7 @@ public class Movimento : MonoBehaviour
 
     private void Saltar()
     {
+        pularAudio.Play();
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * 300);
 
@@ -116,6 +119,7 @@ public class Movimento : MonoBehaviour
 
     private IEnumerator RealizarDash()
     {
+        dashAudio.Play();
         trailRenderer.emitting = true;
         dashLiberadoParaUso = false;
         executandoDash = true;

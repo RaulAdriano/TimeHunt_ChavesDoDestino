@@ -21,6 +21,7 @@ public class ControladorPartida : MonoBehaviour
     [SerializeField] private TMP_Text scoreGameOverText;
     [SerializeField] private CloudServices cloudServices;
     [SerializeField] private string nomeDaTabelaClassificacao;
+    [SerializeField] private AudioSource gameOverAudio;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class ControladorPartida : MonoBehaviour
 
     public void FinalizarPartida(bool vitoria)
     {
+        gameOverAudio.Play();
         Time.timeScale = 0;    
         gameOverPanel.SetActive(true);
 

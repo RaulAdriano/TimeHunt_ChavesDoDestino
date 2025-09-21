@@ -7,6 +7,7 @@ public class ControladorChave : MonoBehaviour
     [SerializeField] private GameObject chavePrefab;
     [SerializeField] private List<Transform> pontosSpawn;
     [SerializeField] private GameObject efeitoColetarChave;
+    [SerializeField] private AudioSource chaveAudio;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +25,7 @@ public class ControladorChave : MonoBehaviour
     {
         if(collision.gameObject.tag == "Chave")
         {
+            chaveAudio.Play();
             Instantiate(efeitoColetarChave, collision.transform.position, collision.transform.rotation);
             collision.collider.enabled = false;
             ControladorPartida.instance.NovaChaveColetada();

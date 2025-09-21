@@ -7,6 +7,7 @@ public class ControladorPowerUp : MonoBehaviour
     [SerializeField] private Coroutine velocidadeCoroutine;
     [SerializeField] private Coroutine dano2xCoroutine;
     [SerializeField] private JogadorUI JogadorUI;
+    [SerializeField] private AudioSource powerupAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,7 @@ public class ControladorPowerUp : MonoBehaviour
 
     public void EquiparPowerUp(TipoPowerUp tipo)
     {
+        powerupAudio.Play();
         switch (tipo)
         {
             case TipoPowerUp.INVENCIVEL:
