@@ -22,6 +22,7 @@ public class ControladorPartida : MonoBehaviour
     [SerializeField] private CloudServices cloudServices;
     [SerializeField] private string nomeDaTabelaClassificacao;
     [SerializeField] private AudioSource gameOverAudio;
+    [SerializeField] private AudioSource dezSegundosAudio;
 
     private void Awake()
     {
@@ -49,6 +50,11 @@ public class ControladorPartida : MonoBehaviour
             tempoTotalPartida++;
 
             tempoRestanteText.text = tempoRestante + "s";
+
+            if(tempoRestante == 10)
+            {
+                dezSegundosAudio.Play();
+            }
         }
 
         FinalizarPartida(false);
