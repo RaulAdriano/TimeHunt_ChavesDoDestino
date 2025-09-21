@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControladorPartida : MonoBehaviour
 {
     [SerializeField] public static ControladorPartida instance { get; private set; }
-    private int tempoRestante = 3000;
+    private int tempoRestante = 30;
     private int tempoTotalPartida = 0;
     private int monstrosDerrotados;
     private int danoSofrido;
@@ -19,6 +19,8 @@ public class ControladorPartida : MonoBehaviour
     [SerializeField] private TMP_Text danoSofridoGameOverText;
     [SerializeField] private TMP_Text chavesColetadasGameOverText;
     [SerializeField] private TMP_Text scoreGameOverText;
+    [SerializeField] private CloudServices cloudServices;
+    [SerializeField] private string nomeDaTabelaClassificacao;
 
     private void Awake()
     {
@@ -65,6 +67,7 @@ public class ControladorPartida : MonoBehaviour
         if (vitoria)
         {
             scoreGameOverText.text = "SCORE: " + Mathf.Max(0, CalcularScore());
+            cloudServices.RegistrarNovaPontuacao(nomeDaTabelaClassificacao,Mathf.Max(0, CalcularScore()));
         }
         else
         {
